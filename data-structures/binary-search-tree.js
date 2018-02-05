@@ -96,4 +96,16 @@ class BinarySearchTree {
     const max = Math.max.apply(null, heights);
     return max - min <= 1;
   }
+  countNodes() {
+    let i = 1;
+    this.traverseBreadthFirst(n => {
+      if (!(n.left === null) && !(n.right === null)) {
+        i += 1;
+      } else if (n.left !== null && n.right === null) {
+        i += 1;
+      }
+      i += 1;
+    });
+    return i / 2;
+  }
 }
